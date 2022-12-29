@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.zaus_app.moviefrumy_new.databinding.FragmentBallBinding
+import com.zaus_app.moviefrumy_new.utils.AnimationHelper
 
 class BallFragment : Fragment() {
     private var _binding: FragmentBallBinding? = null
@@ -18,6 +19,12 @@ class BallFragment : Fragment() {
         _binding = FragmentBallBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.ballFragmentRoot, requireActivity(), 4)
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

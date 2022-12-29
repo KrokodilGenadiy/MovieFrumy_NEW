@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.zaus_app.moviefrumy_new.databinding.FragmentNotificationsBinding
+import com.zaus_app.moviefrumy_new.utils.AnimationHelper
 
 
 class NotificationsFragment : Fragment() {
@@ -18,6 +19,11 @@ class NotificationsFragment : Fragment() {
     ): View {
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.notificationFragmentRoot, requireActivity(), 3)
     }
 
     override fun onDestroyView() {
