@@ -1,4 +1,4 @@
-package com.zaus_app.moviefrumy_new
+package com.zaus_app.moviefrumy_new.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
