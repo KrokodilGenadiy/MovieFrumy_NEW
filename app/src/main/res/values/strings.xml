@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MovieFrumy_NEW</string>
+    <string name="menu_home_title">Home</string>
+    <string name="menu_favorites_title">Favorites</string>
+    <string name="menu_notifications_title">Notifications</string>
+    <string name="menu_magic_ball_title">Magic ball</string>
 </resources>
