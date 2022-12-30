@@ -3,12 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable-v24/animated_ic_favorites.xml" value="0.321" />
+        <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable-v24/animated_ic_home.xml" value="0.321" />
+        <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable-v24/animated_ic_notifications.xml" value="0.321" />
         <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable-v24/background_ball.xml" value="0.321" />
         <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable-v24/background_favorites.xml" value="0.321" />
         <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable-v24/background_home.xml" value="0.321" />
         <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable-v24/background_notifcations.xml" value="0.321" />
         <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable-v24/empty_background.xml" value="0.321" />
+        <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.321" />
+        <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable-v24/ic_round_all_movies.xml" value="0.321" />
+        <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable-v24/ic_round_favorites.xml" value="0.321" />
+        <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable-v24/ic_round_notifications.xml" value="0.321" />
+        <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable/ic_ball_selector.xml" value="0.321" />
+        <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable/ic_home_selector.xml" value="0.321" />
+        <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable/ic_launcher_background.xml" value="0.321" />
+        <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/drawable/ic_notifications_selector.xml" value="0.321" />
         <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/layout/film_item.xml" value="0.365625" />
         <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/layout/fragment_ball.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/layout/fragment_favorites.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/alexu/AndroidStudioProjects/MovieFrumy_NEW/app/src/main/res/layout/fragment_home.xml" value="0.35260416666666666" />

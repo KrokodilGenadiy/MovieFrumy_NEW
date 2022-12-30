@@ -9,4 +9,10 @@
     android:background="@drawable/background_home"
     tools:context=".view.fragments.HomeFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/film_item"/>
+
 </FrameLayout>
