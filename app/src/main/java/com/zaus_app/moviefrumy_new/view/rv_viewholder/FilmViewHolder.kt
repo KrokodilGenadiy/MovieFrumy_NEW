@@ -1,7 +1,7 @@
 package com.zaus_app.moviefrumy_20.view.rv_viewholders
 
 import androidx.recyclerview.widget.RecyclerView
-import com.zaus_app.moviefrumy_new.data.Film
+import com.zaus_app.moviefrumy_new.data.entity.Film
 import com.zaus_app.moviefrumy_new.databinding.FilmItemBinding
 
 

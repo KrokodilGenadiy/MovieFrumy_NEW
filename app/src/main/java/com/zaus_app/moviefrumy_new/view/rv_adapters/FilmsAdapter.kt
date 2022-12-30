@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.zaus_app.moviefrumy_20.view.rv_viewholders.FilmViewHolder
-import com.zaus_app.moviefrumy_new.data.Film
+import com.zaus_app.moviefrumy_new.data.entity.Film
 import com.zaus_app.moviefrumy_new.databinding.FilmItemBinding
 
 class FilmAdapter(private val clickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

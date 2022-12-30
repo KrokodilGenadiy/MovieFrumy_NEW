@@ -1,4 +1,4 @@
-package com.zaus_app.moviefrumy_new.data
+package com.zaus_app.moviefrumy_new.data.entity
 
 data class Film(
     val title: String,

@@ -12,7 +12,7 @@ import com.zaus_app.moviefrumy_2.view.rv_adaptes.FilmDiff
 import com.zaus_app.moviefrumy_20.view.rv_adaptes.FilmAdapter
 import com.zaus_app.moviefrumy_20.view.rv_adaptes.TopSpacingItemDecoration
 import com.zaus_app.moviefrumy_new.R
-import com.zaus_app.moviefrumy_new.data.Film
+import com.zaus_app.moviefrumy_new.data.entity.Film
 import com.zaus_app.moviefrumy_new.databinding.FragmentHomeBinding
 import com.zaus_app.moviefrumy_new.utils.AnimationHelper
 
@@ -27,11 +27,13 @@ class HomeFragment : Fragment() {
             }
         })
     }
-    private val filmsDataBase = listOf<Film>(Film("Title", R.drawable.error_image,"description",2.0, false),
+    private val filmsDataBase = listOf<Film>(
         Film("Title", R.drawable.error_image,"description",2.0, false),
         Film("Title", R.drawable.error_image,"description",2.0, false),
         Film("Title", R.drawable.error_image,"description",2.0, false),
-        Film("Title", R.drawable.error_image,"description",2.0, false))
+        Film("Title", R.drawable.error_image,"description",2.0, false),
+        Film("Title", R.drawable.error_image,"description",2.0, false)
+    )
 
 
     override fun onCreateView(
