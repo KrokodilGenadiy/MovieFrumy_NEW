@@ -14,7 +14,7 @@ class FilmViewHolder(binding: FilmItemBinding, clickAtPosition: (Int) -> Unit) :
 
     init {
         binding.root.setOnClickListener {
-            clickAtPosition(adapterPosition)
+            clickAtPosition(absoluteAdapterPosition)
         }
     }
 

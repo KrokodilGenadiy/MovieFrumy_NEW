@@ -7,7 +7,7 @@ import com.zaus_app.moviefrumy_new.R
 import com.zaus_app.moviefrumy_new.databinding.ActivityMainBinding
 import com.zaus_app.moviefrumy_new.view.fragments.BallFragment
 import com.zaus_app.moviefrumy_new.view.fragments.FavoritesFragment
-import com.zaus_app.moviefrumy_new.view.fragments.HomeFragment
+import com.zaus_app.moviefrumy_new.view.fragments.home_fragment.HomeFragment
 import com.zaus_app.moviefrumy_new.view.fragments.NotificationsFragment
 
 class MainActivity : AppCompatActivity() {

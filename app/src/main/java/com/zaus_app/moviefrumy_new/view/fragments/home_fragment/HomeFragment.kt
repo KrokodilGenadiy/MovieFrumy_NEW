@@ -1,4 +1,4 @@
-package com.zaus_app.moviefrumy_new.view.fragments
+package com.zaus_app.moviefrumy_new.view.fragments.home_fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -27,13 +27,6 @@ class HomeFragment : Fragment() {
             }
         })
     }
-    private val filmsDataBase = listOf<Film>(
-        Film("Title", R.drawable.error_image,"description",2.0, false),
-        Film("Title", R.drawable.error_image,"description",2.0, false),
-        Film("Title", R.drawable.error_image,"description",2.0, false),
-        Film("Title", R.drawable.error_image,"description",2.0, false),
-        Film("Title", R.drawable.error_image,"description",2.0, false)
-    )
 
 
     override fun onCreateView(
@@ -53,15 +46,6 @@ class HomeFragment : Fragment() {
             val decorator = TopSpacingItemDecoration(8)
             addItemDecoration(decorator)
         }
-        updateData(filmsDataBase)
-    }
-
-    private fun updateData(newList: List<Film>){
-        val oldList = filmsAdapter.getItems()
-        val productDiff = FilmDiff(oldList,newList)
-        val diffResult = DiffUtil.calculateDiff(productDiff)
-        filmsAdapter.setItems(newList)
-        diffResult.dispatchUpdatesTo(filmsAdapter)
     }
 
     override fun onDestroyView() {
