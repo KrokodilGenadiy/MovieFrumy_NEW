@@ -13,6 +13,7 @@ import com.zaus_app.moviefrumy_20.view.rv_adaptes.TopSpacingItemDecoration
 import com.zaus_app.moviefrumy_new.data.entity.Film
 import com.zaus_app.moviefrumy_new.databinding.FragmentHomeBinding
 import com.zaus_app.moviefrumy_new.utils.AnimationHelper
+import com.zaus_app.moviefrumy_new.view.MainActivity
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -24,7 +25,7 @@ class HomeFragment : Fragment() {
     private val filmsAdapter by lazy {
         FilmsAdapter(object : FilmsAdapter.OnItemClickListener {
             override fun click(film: Film) {
-               // (requireActivity() as MainActivity).launchDetailsFragment(film)
+                (requireActivity() as MainActivity).launchDetailsFragment(film)
             }
         })
     }

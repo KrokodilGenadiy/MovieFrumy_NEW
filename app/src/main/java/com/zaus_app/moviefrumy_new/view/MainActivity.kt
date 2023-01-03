@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.zaus_app.moviefrumy_new.R
+import com.zaus_app.moviefrumy_new.data.entity.Film
 import com.zaus_app.moviefrumy_new.databinding.ActivityMainBinding
 import com.zaus_app.moviefrumy_new.view.fragments.BallFragment
+import com.zaus_app.moviefrumy_new.view.fragments.DetailsFragment
 import com.zaus_app.moviefrumy_new.view.fragments.FavoritesFragment
 import com.zaus_app.moviefrumy_new.view.fragments.home_fragment.HomeFragment
 import com.zaus_app.moviefrumy_new.view.fragments.NotificationsFragment
@@ -19,6 +21,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         changeFragment(HomeFragment(),"home")
         initNavigation()
+    }
+
+    fun launchDetailsFragment(film: Film) {
+        val bundle = Bundle()
+        bundle.putParcelable("film", film)
+        val fragment = checkFragmentExistence("details") ?: DetailsFragment()
+        fragment.arguments = bundle
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_placeholder, fragment, "details")
+            .addToBackStack("details")
+            .commit()
     }
 
     private fun checkFragmentExistence(tag: String): Fragment? = supportFragmentManager.findFragmentByTag(tag)
