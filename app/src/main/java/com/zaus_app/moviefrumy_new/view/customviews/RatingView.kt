@@ -1,6 +1,8 @@
 package com.zaus_app.moviefrumy_new.view.customviews
 
 
+import android.animation.PropertyValuesHolder
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
@@ -130,4 +132,18 @@ class RatingView @JvmOverloads constructor(
     }
 
     private fun convertProgressToDegrees(progress: Int): Float = progress * 3.6f
+
+    fun animateProgress() {
+        val valuesHolder = PropertyValuesHolder.ofFloat("progress", 0f, progress.toFloat())
+        val animator = ValueAnimator().apply {
+            setValues(valuesHolder)
+            duration = 1000
+            addUpdateListener {
+                val percentage = it.getAnimatedValue("progress") as Float
+                currentProgress = percentage.toInt()
+                invalidate()
+            }
+        }
+        animator.start()
+    }
 }
