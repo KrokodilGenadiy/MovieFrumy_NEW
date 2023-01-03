@@ -35,6 +35,7 @@ class DetailsFragment : Fragment() {
             .load(ApiConstants.IMAGES_URL + "w780" + film.poster)
             .centerCrop()
             .into(binding.detailsPoster)
+        binding.genres.text = film.genres
         binding.detailsDescription.text = film.description
     }
 

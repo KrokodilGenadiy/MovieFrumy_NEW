@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class Film(
     val title: String,
     val poster: String,
+    val genres: String,
     val description: String,
     var rating: Double = 0.0,
     var isInFavorites: Boolean = false
