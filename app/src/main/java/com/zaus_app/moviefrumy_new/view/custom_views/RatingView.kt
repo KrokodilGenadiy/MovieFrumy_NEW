@@ -1,4 +1,4 @@
-package com.zaus_app.moviefrumy_new.view.customviews
+package com.zaus_app.moviefrumy_new.view.custom_views
 
 
 import android.animation.PropertyValuesHolder
