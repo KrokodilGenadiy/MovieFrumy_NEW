@@ -16,6 +16,7 @@ import javax.inject.Inject
 class HomeFragmentViewModel : ViewModel() {
     @Inject
     lateinit var interactor: Interactor
+    @Inject
     lateinit var filmPagingSource: FilmPagingSourceImpl
 
     init {

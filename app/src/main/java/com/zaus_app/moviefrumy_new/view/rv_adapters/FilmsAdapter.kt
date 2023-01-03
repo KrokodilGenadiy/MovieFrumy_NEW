@@ -2,39 +2,29 @@ package com.zaus_app.moviefrumy_20.view.rv_adaptes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.paging.PagingDataAdapter
 import com.zaus_app.moviefrumy_20.view.rv_viewholders.FilmViewHolder
 import com.zaus_app.moviefrumy_new.data.entity.Film
 import com.zaus_app.moviefrumy_new.databinding.FilmItemBinding
+import com.zaus_app.moviefrumy_new.view.rv_adapters.FilmDiffCallBack
 
-class FilmAdapter(private val clickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var items = mutableListOf<Film>()
+class FilmsAdapter(private val clickListener: OnItemClickListener) :
+    PagingDataAdapter<Film, FilmViewHolder>(
+        FilmDiffCallBack()
+    ) {
 
-    override fun getItemCount() = items.size
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder {
         val binding = FilmItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return FilmViewHolder(binding) {
-            clickListener.click(it)
-        }
-    }
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (holder) {
-            is FilmViewHolder -> {
-                holder.bind(items[position])
-            }
+            clickListener.click(getItem(it)!!)
         }
     }
 
-    fun getItems(): List<Film> {
-        return items
-    }
-
-    fun setItems(list: List<Film>) {
-        this.items = list as MutableList<Film>
+    override fun onBindViewHolder(holder: FilmViewHolder, position: Int) {
+        holder.bind(getItem(position)!!)
     }
 
     interface OnItemClickListener {
-        fun click(position: Int)
+        fun click(film: Film)
     }
 }
