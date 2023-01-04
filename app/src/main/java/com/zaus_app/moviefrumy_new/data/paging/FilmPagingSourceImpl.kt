@@ -9,6 +9,7 @@ import com.zaus_app.moviefrumy_new.domain.Interactor
 import kotlinx.coroutines.flow.Flow
 
 class FilmPagingSourceImpl(
+    private val query: String,
     private val interactor: BaseInteractor) {
     fun getMovies(): Flow<PagingData<Film>> {
         return Pager(
@@ -17,7 +18,7 @@ class FilmPagingSourceImpl(
                 enablePlaceholders = false
             ),
             pagingSourceFactory = {
-                FilmPagingSource(interactor)
+                FilmPagingSource(query,interactor)
             }
         ).flow
     }

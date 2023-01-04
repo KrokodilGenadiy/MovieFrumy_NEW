@@ -3,19 +3,25 @@ package com.zaus_app.moviefrumy_new.data.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.zaus_app.moviefrumy_new.data.entity.Film
+import com.zaus_app.moviefrumy_new.data.entity.TmdbResultsDto
 import com.zaus_app.moviefrumy_new.domain.BaseInteractor
 import com.zaus_app.moviefrumy_new.utils.Converter
 import retrofit2.HttpException
+import retrofit2.Response
 import java.io.IOException
 
 class FilmPagingSource(
+    private val query: String,
     private val interactor: BaseInteractor
 ): PagingSource<Int, Film>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Film> {
         val pageIndex = params.key ?: TMDB_STARTING_PAGE_INDEX
         return try {
-            val response = interactor.getFilmsFromApi(pageIndex)
+            val response: Response<TmdbResultsDto> = if (query.isEmpty())
+                interactor.getFilmsFromApi(pageIndex)
+            else
+                interactor.getFilmsByQuery(query,pageIndex)
             val films = Converter.convertApiListToDtoList(response.body()?.tmdbFilms)
             val nextKey =
                 if (films.isEmpty()) {

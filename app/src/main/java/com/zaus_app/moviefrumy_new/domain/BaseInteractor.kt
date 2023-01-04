@@ -5,4 +5,5 @@ import retrofit2.Response
 
 interface BaseInteractor {
     suspend fun getFilmsFromApi(page: Int): Response<TmdbResultsDto>
+    suspend fun getFilmsByQuery(query: String, page: Int): Response<TmdbResultsDto>
 }

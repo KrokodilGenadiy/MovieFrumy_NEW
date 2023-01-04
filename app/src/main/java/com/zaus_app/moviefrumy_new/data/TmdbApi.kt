@@ -12,4 +12,12 @@ interface TmdbApi {
         @Query("language") language: String,
         @Query("page") page: Int
     ): Response<TmdbResultsDto>
+
+    @GET("3/search/movie")
+    fun getFilmFromSearch(
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String,
+        @Query("query") query: String,
+        @Query("page") page: Int
+    ): Response<TmdbResultsDto>
 }

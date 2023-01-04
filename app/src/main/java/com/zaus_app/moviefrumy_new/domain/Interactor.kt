@@ -10,4 +10,8 @@ class Interactor(private val retrofitService: TmdbApi): BaseInteractor {
     override suspend fun getFilmsFromApi(page: Int): Response<TmdbResultsDto> {
         return retrofitService.getFilms(API.KEY, Locale.getDefault().toLanguageTag(), page)
     }
+
+    override suspend fun getFilmsByQuery(query: String, page: Int): Response<TmdbResultsDto> {
+        return retrofitService.getFilmFromSearch(API.KEY, Locale.getDefault().toLanguageTag(),query, page)
+    }
 }
