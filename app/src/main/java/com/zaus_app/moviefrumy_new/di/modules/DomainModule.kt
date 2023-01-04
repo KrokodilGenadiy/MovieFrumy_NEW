@@ -14,8 +14,4 @@ class DomainModule {
     @Singleton
     @Provides
     fun provideInteractor(tmdbApi: TmdbApi) = Interactor(tmdbApi)
-
-    @Singleton
-    @Provides
-    fun provideDataSourceImplementation(interactor: Interactor) = FilmPagingSourceImpl(interactor)
 }

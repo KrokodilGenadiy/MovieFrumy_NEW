@@ -14,7 +14,7 @@ interface TmdbApi {
     ): Response<TmdbResultsDto>
 
     @GET("3/search/movie")
-    fun getFilmFromSearch(
+    suspend fun getFilmFromSearch(
         @Query("api_key") apiKey: String,
         @Query("language") language: String,
         @Query("query") query: String,
