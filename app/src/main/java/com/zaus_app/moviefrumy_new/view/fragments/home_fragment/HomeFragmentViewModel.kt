@@ -14,7 +14,7 @@ class HomeFragmentViewModel : ViewModel() {
     @Inject
     lateinit var interactor: Interactor
 
-    private val _query = MutableStateFlow("home alone")
+    private val _query = MutableStateFlow("")
     private val query: StateFlow<String> = _query.asStateFlow()
 
     init {

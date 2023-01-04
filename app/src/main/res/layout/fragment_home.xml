@@ -10,46 +10,46 @@ tools:visibility="visible"
 android:background="@drawable/background_home"
 tools:context=".view.fragments.home_fragment.HomeFragment">
 
-<com.google.android.material.appbar.AppBarLayout
-    android:id="@+id/app_bar"
-    android:layout_width="match_parent"
-    android:layout_height="60dp"
-    android:background="@color/colorPrimaryDark">
-
-    <com.google.android.material.appbar.CollapsingToolbarLayout
-        android:id="@+id/toolbar_layout"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:minHeight="0dp"
-        app:layout_scrollFlags="scroll|enterAlways"
-        app:statusBarScrim="@android:color/transparent"
-        app:toolbarId="@+id/toolbar">
+        android:layout_height="60dp"
+        android:background="@color/colorPrimaryDark">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar_menu"
-            style="@style/Widget.MaterialComponents.Toolbar"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             android:minHeight="0dp"
-            app:menu="@menu/toolbar">
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:statusBarScrim="@android:color/transparent"
+            app:toolbarId="@+id/toolbar">
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/search_view"
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar_menu"
+                style="@style/Widget.MaterialComponents.Toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/background_search_view"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:fitsSystemWindows="true"
+                android:minHeight="0dp"
+                app:menu="@menu/toolbar">
 
-        </com.google.android.material.appbar.MaterialToolbar>
-    </com.google.android.material.appbar.CollapsingToolbarLayout>
-</com.google.android.material.appbar.AppBarLayout>
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_search_view"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </com.google.android.material.appbar.MaterialToolbar>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/main_recycler"

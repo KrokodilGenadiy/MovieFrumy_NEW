@@ -18,7 +18,10 @@ class FilmPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Film> {
         val pageIndex = params.key ?: TMDB_STARTING_PAGE_INDEX
         return try {
-            val response = interactor.getFilmsByQuery(query,pageIndex)
+            val response = if (query.isEmpty())
+                interactor.getFilmsFromApi(pageIndex)
+            else
+                interactor.getFilmsByQuery(query,pageIndex)
             val films = Converter.convertApiListToDtoList(response.body()?.tmdbFilms)
             val nextKey =
                 if (films.isEmpty()) {
