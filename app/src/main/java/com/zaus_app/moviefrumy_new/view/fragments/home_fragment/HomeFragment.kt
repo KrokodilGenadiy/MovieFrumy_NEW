@@ -69,10 +69,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun getFilms() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.getMovies().collectLatest { movies ->
-                filmsAdapter.submitData(movies)
-            }
+     viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.movies.collectLatest(filmsAdapter::submitData)
         }
     }
 
@@ -86,7 +84,7 @@ class HomeFragment : Fragment() {
             ) { newText ->
                 newText?.let {
                     viewModel.setQuery(newText)
-                    getFilms()
+                    filmsAdapter.refresh()
                 }
             }
         )

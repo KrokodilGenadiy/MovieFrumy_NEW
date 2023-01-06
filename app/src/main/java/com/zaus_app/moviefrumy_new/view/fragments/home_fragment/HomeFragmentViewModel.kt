@@ -7,7 +7,6 @@ import com.zaus_app.moviefrumy_new.App
 import com.zaus_app.moviefrumy_new.data.entity.Film
 import com.zaus_app.moviefrumy_new.data.paging.FilmPagingSourceImpl
 import com.zaus_app.moviefrumy_new.domain.Interactor
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
@@ -17,12 +16,16 @@ class HomeFragmentViewModel : ViewModel() {
 
     private val _query = MutableStateFlow("")
     private val query: StateFlow<String> = _query.asStateFlow()
+    val movies: StateFlow<PagingData<Film>>
 
     init {
         App.instance.dagger.inject(this)
+        movies = query.flatMapLatest {
+            getMovies()
+        }.stateIn(viewModelScope, SharingStarted.Lazily, PagingData.empty())
     }
 
-    fun getMovies(): Flow<PagingData<Film>> {
+    private fun getMovies(): Flow<PagingData<Film>> {
         return FilmPagingSourceImpl(query.value,interactor).getMovies()
             .map { pagingData ->
                 pagingData.map {
