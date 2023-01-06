@@ -4,6 +4,8 @@
     <string name="menu_favorites_title">Favorites</string>
     <string name="menu_notifications_title">Notifications</string>
     <string name="menu_magic_ball_title">Magic ball</string>
+
+    //Genres
     <string name="genre_action">Action</string>
     <string name="genre_adventure">Adventure</string>
     <string name="genre_animation">Animation</string>
@@ -23,4 +25,19 @@
     <string name="genre_war">War</string>
     <string name="genre_western">Western</string>
     <string name="filter_string_name">Filters</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="filters_fragment_header">Filters</string>
+    <string name="сategory_chooser_hint">Main selection</string>
+
+    //Categories
+    <string-array name="categories">
+        <item>@string/popular</item>
+        <item>@string/top_rated</item>
+        <item>@string/upcoming</item>
+        <item>@string/playing</item>
+    </string-array>
+    <string name="popular">Popular</string>
+    <string name="top_rated">Top rated</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="playing">Playing</string>
 </resources>

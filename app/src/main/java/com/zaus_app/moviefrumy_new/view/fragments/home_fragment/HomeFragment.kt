@@ -13,10 +13,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zaus_app.moviefrumy_20.view.rv_adaptes.FilmsAdapter
 import com.zaus_app.moviefrumy_20.view.rv_adaptes.TopSpacingItemDecoration
+import com.zaus_app.moviefrumy_new.R
 import com.zaus_app.moviefrumy_new.data.entity.Film
 import com.zaus_app.moviefrumy_new.databinding.FragmentHomeBinding
 import com.zaus_app.moviefrumy_new.utils.AnimationHelper
 import com.zaus_app.moviefrumy_new.view.MainActivity
+import com.zaus_app.moviefrumy_new.view.fragments.FiltersFragment
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
@@ -52,6 +54,7 @@ class HomeFragment : Fragment() {
             addItemDecoration(decorator)
         }
         initSearch()
+        initToolbar()
         getFilms()
     }
 
@@ -77,6 +80,19 @@ class HomeFragment : Fragment() {
                 }
             }
         )
+    }
+
+    fun initToolbar() {
+        binding.toolbarMenu.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.filters -> {
+                    val bottomSheetFragment = FiltersFragment()
+                    bottomSheetFragment.show(requireActivity().supportFragmentManager,"BottomSheet")
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     override fun onDestroyView() {
