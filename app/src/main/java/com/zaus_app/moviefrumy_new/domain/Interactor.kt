@@ -11,9 +11,6 @@ import retrofit2.Response
 import java.util.*
 
 class Interactor(private val retrofitService: TmdbApi,  private val preferences: PreferenceProvider): BaseInteractor {
-    private val _refresh = MutableStateFlow(false)
-    private val refresh: StateFlow<Boolean> = _refresh.asStateFlow()
-
     override suspend fun getFilmsFromApi(page: Int): Response<TmdbResultsDto> {
         return retrofitService.getFilms(getDefaultCategoryFromPreferences(),API.KEY, Locale.getDefault().toLanguageTag(), page)
     }
@@ -27,10 +24,4 @@ class Interactor(private val retrofitService: TmdbApi,  private val preferences:
     }
 
     fun getDefaultCategoryFromPreferences() = preferences.getDefaultCategory()
-
-    fun setRefreshStatus(status: Boolean) {
-        _refresh.tryEmit(status)
-    }
-
-    fun getRefreshStatus(): StateFlow<Boolean> = refresh
 }

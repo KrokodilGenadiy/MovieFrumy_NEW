@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zaus_app.moviefrumy_20.view.rv_adaptes.FilmsAdapter
 import com.zaus_app.moviefrumy_20.view.rv_adaptes.TopSpacingItemDecoration
@@ -56,7 +57,6 @@ class HomeFragment : Fragment() {
         }
         initSearch()
         initToolbar()
-        initRefresh()
         getFilms()
     }
 
@@ -64,17 +64,6 @@ class HomeFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.getMovies().collectLatest { movies ->
                 filmsAdapter.submitData(movies)
-            }
-        }
-    }
-
-    private fun initRefresh() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.interactor.getRefreshStatus().collectLatest {
-                if (it) {
-                    getFilms()
-                    viewModel.interactor.setRefreshStatus(false)
-                }
             }
         }
     }

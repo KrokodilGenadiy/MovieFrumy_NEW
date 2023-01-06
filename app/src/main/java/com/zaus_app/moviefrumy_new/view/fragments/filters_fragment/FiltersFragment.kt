@@ -15,7 +15,6 @@ import com.zaus_app.moviefrumy_new.databinding.FragmentFiltersBinding
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-
 class FiltersFragment : BottomSheetDialogFragment() {
     private var _binding: FragmentFiltersBinding? = null
     private val binding get() = _binding!!
@@ -44,7 +43,6 @@ class FiltersFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //TODO need to change refresh logic in the future
         initCategoryChooser()
         initConfirmButton()
     }
@@ -60,30 +58,27 @@ class FiltersFragment : BottomSheetDialogFragment() {
         binding.autoCompleteTextView.setAdapter(arrayAdapter)
         binding.autoCompleteTextView.onItemClickListener =
             AdapterView.OnItemClickListener { parent, _, position, _ ->
-                val itemSelected = parent.getItemAtPosition(position).toString()
-                if (itemSelected != categoryList[viewModel.currentCategory.toString()]) {
-                    when (itemSelected)
-                    {
-                        resources.getString(R.string.popular) -> viewModel.interactor.saveDefaultCategoryToPreferences(
-                            POPULAR_CATEGORY
-                        )
-                        resources.getString(R.string.top_rated) -> viewModel.interactor.saveDefaultCategoryToPreferences(
-                            TOP_RATED_CATEGORY
-                        )
-                        resources.getString(R.string.upcoming) -> viewModel.interactor.saveDefaultCategoryToPreferences(
-                            UPCOMING_CATEGORY
-                        )
-                        resources.getString(R.string.playing) -> viewModel.interactor.saveDefaultCategoryToPreferences(
-                            NOW_PLAYING_CATEGORY
-                        )
-                    }
+                when (parent.getItemAtPosition(position).toString()) {
+                    resources.getString(R.string.popular) -> viewModel.interactor.saveDefaultCategoryToPreferences(
+                        POPULAR_CATEGORY
+                    )
+                    resources.getString(R.string.top_rated) -> viewModel.interactor.saveDefaultCategoryToPreferences(
+                        TOP_RATED_CATEGORY
+                    )
+                    resources.getString(R.string.upcoming) -> viewModel.interactor.saveDefaultCategoryToPreferences(
+                        UPCOMING_CATEGORY
+                    )
+                    resources.getString(R.string.playing) -> viewModel.interactor.saveDefaultCategoryToPreferences(
+                        NOW_PLAYING_CATEGORY
+                    )
                 }
+
             }
     }
 
     fun initConfirmButton() {
+        //TODO need to add logic to refresh recycler on home page
         binding.confirmButton.setOnClickListener {
-            viewModel.interactor.setRefreshStatus(true)
             dismiss()
         }
     }

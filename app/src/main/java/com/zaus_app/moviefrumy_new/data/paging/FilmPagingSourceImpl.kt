@@ -23,6 +23,6 @@ class FilmPagingSourceImpl(
         ).flow
     }
     companion object {
-        const val NETWORK_PAGE_SIZE = 25
+        const val NETWORK_PAGE_SIZE = 30
     }
 }
