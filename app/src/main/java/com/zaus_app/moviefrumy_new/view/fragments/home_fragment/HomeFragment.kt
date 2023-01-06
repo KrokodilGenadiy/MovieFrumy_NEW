@@ -11,8 +11,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.SimpleItemAnimator
 import com.zaus_app.moviefrumy_20.view.rv_adaptes.FilmsAdapter
 import com.zaus_app.moviefrumy_20.view.rv_adaptes.TopSpacingItemDecoration
 import com.zaus_app.moviefrumy_new.R
@@ -53,10 +55,11 @@ class HomeFragment : Fragment() {
             requireActivity(),
             1
         )
+        /*
         filmsAdapter.addLoadStateListener { state ->
             binding.mainRecycler.isVisible = state.refresh != LoadState.Loading
             binding.progressBar.isVisible = state.refresh == LoadState.Loading
-        }
+        } */
         binding.mainRecycler.apply {
             adapter = filmsAdapter
             layoutManager = LinearLayoutManager(requireContext())
@@ -69,8 +72,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun getFilms() {
-     viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.movies.collectLatest(filmsAdapter::submitData)
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.movies.collectLatest(filmsAdapter::submitData)
+            }
         }
     }
 
