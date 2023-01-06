@@ -7,6 +7,7 @@ import com.zaus_app.moviefrumy_new.App
 import com.zaus_app.moviefrumy_new.data.entity.Film
 import com.zaus_app.moviefrumy_new.data.paging.FilmPagingSourceImpl
 import com.zaus_app.moviefrumy_new.domain.Interactor
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 

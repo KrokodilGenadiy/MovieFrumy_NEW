@@ -18,9 +18,10 @@ import com.zaus_app.moviefrumy_new.data.entity.Film
 import com.zaus_app.moviefrumy_new.databinding.FragmentHomeBinding
 import com.zaus_app.moviefrumy_new.utils.AnimationHelper
 import com.zaus_app.moviefrumy_new.view.MainActivity
-import com.zaus_app.moviefrumy_new.view.fragments.FiltersFragment
+import com.zaus_app.moviefrumy_new.view.fragments.filters_fragment.FiltersFragment
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -55,18 +56,30 @@ class HomeFragment : Fragment() {
         }
         initSearch()
         initToolbar()
+        initRefresh()
         getFilms()
     }
 
     private fun getFilms() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.getMovies().collectLatest { movies ->
-                filmsAdapter.submitData(viewLifecycleOwner.lifecycle, movies)
+                filmsAdapter.submitData(movies)
             }
         }
     }
 
-    fun initSearch() {
+    private fun initRefresh() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.interactor.getRefreshStatus().collectLatest {
+                if (it) {
+                    getFilms()
+                    viewModel.interactor.setRefreshStatus(false)
+                }
+            }
+        }
+    }
+
+    private fun initSearch() {
         binding.searchView.setOnClickListener {
             binding.searchView.isIconified = false
         }
@@ -82,7 +95,7 @@ class HomeFragment : Fragment() {
         )
     }
 
-    fun initToolbar() {
+    private fun initToolbar() {
         binding.toolbarMenu.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.filters -> {
