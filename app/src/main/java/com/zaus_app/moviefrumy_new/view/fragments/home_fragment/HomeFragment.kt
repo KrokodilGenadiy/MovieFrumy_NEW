@@ -1,16 +1,17 @@
 package com.zaus_app.moviefrumy_new.view.fragments.home_fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.lifecycleScope
-import androidx.paging.PagingData
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zaus_app.moviefrumy_20.view.rv_adaptes.FilmsAdapter
 import com.zaus_app.moviefrumy_20.view.rv_adaptes.TopSpacingItemDecoration
@@ -22,7 +23,6 @@ import com.zaus_app.moviefrumy_new.view.MainActivity
 import com.zaus_app.moviefrumy_new.view.fragments.filters_fragment.FiltersFragment
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -48,7 +48,15 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot, requireActivity(), 1)
+        AnimationHelper.performFragmentCircularRevealAnimation(
+            binding.homeFragmentRoot,
+            requireActivity(),
+            1
+        )
+        filmsAdapter.addLoadStateListener { state ->
+            binding.mainRecycler.isVisible = state.refresh != LoadState.Loading
+            binding.progressBar.isVisible = state.refresh == LoadState.Loading
+        }
         binding.mainRecycler.apply {
             adapter = filmsAdapter
             layoutManager = LinearLayoutManager(requireContext())
@@ -89,7 +97,10 @@ class HomeFragment : Fragment() {
             when (it.itemId) {
                 R.id.filters -> {
                     val bottomSheetFragment = FiltersFragment()
-                    bottomSheetFragment.show(requireActivity().supportFragmentManager,"BottomSheet")
+                    bottomSheetFragment.show(
+                        requireActivity().supportFragmentManager,
+                        "BottomSheet"
+                    )
                     true
                 }
                 else -> false
