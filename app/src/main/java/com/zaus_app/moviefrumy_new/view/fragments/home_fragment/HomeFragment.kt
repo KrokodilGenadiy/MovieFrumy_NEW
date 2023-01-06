@@ -84,7 +84,6 @@ class HomeFragment : Fragment() {
             ) { newText ->
                 newText?.let {
                     viewModel.setQuery(newText)
-                    filmsAdapter.refresh()
                 }
             }
         )
