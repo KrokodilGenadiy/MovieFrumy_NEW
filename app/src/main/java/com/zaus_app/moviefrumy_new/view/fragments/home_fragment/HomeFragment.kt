@@ -55,11 +55,7 @@ class HomeFragment : Fragment() {
             requireActivity(),
             1
         )
-        /*
-        filmsAdapter.addLoadStateListener { state ->
-            binding.mainRecycler.isVisible = state.refresh != LoadState.Loading
-            binding.progressBar.isVisible = state.refresh == LoadState.Loading
-        } */
+
         binding.mainRecycler.apply {
             adapter = filmsAdapter
             layoutManager = LinearLayoutManager(requireContext())

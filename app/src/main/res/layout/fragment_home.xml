@@ -58,13 +58,6 @@ tools:context=".view.fragments.home_fragment.HomeFragment">
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:listitem="@layout/film_item"/>
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:visibility="invisible"
-        android:layout_gravity="center"/>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
